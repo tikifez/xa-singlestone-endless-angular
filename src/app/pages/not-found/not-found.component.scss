@@ -1,0 +1,28 @@
+:host {
+}
+.wrapper {
+  padding-top: 51px;
+  height: calc(100vh - 51px - var(--global--font-size-xxl));
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: 300;
+  margin: 0;
+
+  @media only screen and (max-width: 559px) {
+    font-size: var(--global--font-size-xl);
+  }
+  @media only screen and (min-width: 560px) {
+    font-size: calc(0.8 * var(--global--font-size-xxl));
+  }
+
+  @media only screen and (min-width: 780px) {
+    font-size: var(--global--font-size-xxl);
+  }
+}
+

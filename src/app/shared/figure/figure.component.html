@@ -1,0 +1,15 @@
+<figure [ngClass]="{'cover': cover, 'bokeh': bokeh}">
+  <img
+    [attr.loading]="isLazyLoad === false ? null : 'lazy'"
+    width="{{ width }}"
+    height="{{ height }}"
+    src="{{ src }}"
+    alt="{{ alt }}"
+    srcset="{{ srcSet }}"
+    sizes="{{ sizes }}"/>
+  <ng-container *ngIf="bokeh">
+    <ng-container *ngFor="let i of [].constructor(10)">
+      <span class="shape"></span>
+    </ng-container>
+  </ng-container>
+</figure>

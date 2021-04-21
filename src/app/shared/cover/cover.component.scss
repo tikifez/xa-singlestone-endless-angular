@@ -1,0 +1,77 @@
+:host {
+  color: var(--global--color-text-accent);
+  font-size: var(--global--font-size-md);
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media only screen and (max-width: 559px) {
+    height: 736px;
+  }
+  @media only screen and (min-width: 560px) {
+    height: 888px;
+  }
+}
+
+.content {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--section--content-max-width);
+  padding: var(--section--padding-vertical) var(--section--padding-horizontal) calc(4.7 * var(--global--spacing-unit));
+}
+
+.figure {
+  background: var(--global--color-background-accent);
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.body {
+  font-size: var(--global--font-size-md);
+  margin-top: calc(1.2 * var(--global--spacing-unit));
+  max-width: 25em;
+
+  @media only screen and (max-width: 559px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  p {
+    margin: 0;
+    letter-spacing: 0.001em;
+    line-height: 1.35;
+  }
+}
+
+.title {
+  font-weight: 300;
+  margin: 0;
+
+  @media only screen and (max-width: 559px) {
+    font-size: var(--global--font-size-xl);
+  }
+  @media only screen and (min-width: 560px) {
+    font-size: calc(0.8 * var(--global--font-size-xxl));
+  }
+
+  @media only screen and (min-width: 780px) {
+    font-size: var(--global--font-size-xxl);
+  }
+}
+
+.cover {
+  height: 100%;
+}

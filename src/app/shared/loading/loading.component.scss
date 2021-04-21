@@ -1,0 +1,112 @@
+$n: 7;
+$c: darken(#50e3c2, 21%) #50e3c2;
+$bar-w: 2.2em;
+$bar-h: 4.1*$bar-w;
+$bgc: #222222;
+$cover-h: $bar-w + $bar-h;
+$cover-w: $n*$bar-w + $cover-h;
+
+:host.isLoading {
+  height: 100vh;
+  width: 100vw;
+  background: $bgc;
+  position: fixed;
+  z-index: 200;
+  opacity: 1;
+}
+:host.isLoaded {
+  opacity: 0;
+  transition: opacity ease-in 0.5s;
+}
+
+.noShow {
+  display: none;
+}
+
+div, :after {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;;
+}
+
+.loader:nth-child(2) {
+  transform: scaleY(-1);
+
+  &:after {
+    margin-left: -.5*$cover-w;
+    width: $cover-w; height: $cover-h;
+    background: linear-gradient(
+        $bgc $bar-w, rgba($bgc, .3));
+    content: '';
+  }
+}
+
+.bar {
+  bottom: 0;
+  width: $bar-w; height: $bar-h;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bar 24s cubic-bezier(0.81, 0.2, 0.4, 0.7) infinite;
+
+  @for $i from 0 to $n {
+    $args: append($c, $i*100%/($n - 1));
+
+    &:nth-child(#{$i + 1}) {
+      margin-left: ($i - .5*$n)*$bar-w;
+      background: mix($args...);
+      animation-delay: $i*50ms;
+    }
+  }
+}
+
+$svgRatio: 6.87655;
+.bar svg {
+  height: 1.75em;
+  width: calc( 1.75em * #{$svgRatio} );
+  overflow: visible;
+  position: relative;
+}
+
+.bar:nth-child(1) {
+  border-radius: 1em 0 0 1em;
+}
+.bar:nth-child(7) {
+  border-radius: 0 1em 1em 0;
+}
+
+
+.bar:nth-child(1) svg {
+  left: 5.25em;
+}
+
+.bar:nth-child(2) svg {
+  left: 3.41em;
+}
+
+.bar:nth-child(3) svg {
+  left: 1.41em;
+}
+
+.bar:nth-child(4) svg {
+  left: -0.41em;
+}
+.bar:nth-child(5) svg {
+  left: -2.15em;
+}
+.bar:nth-child(6) svg {
+  left: -3.75em;
+}
+.bar:nth-child(7) svg {
+  left: -5.45em;
+}
+
+@keyframes bar {
+  0%, 33%, 83.5%, 100% {
+    transform: none;
+  }
+  16.5%, 66% {
+    transform: rotate(-1turn)
+    rotateX(-0.5turn);
+  }
+}

@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="figure">
+    <endless-figure class="cover" [src]="imgSrc" [srcSet]="imgSrcSet"
+                    [sizes]="imgSizes"
+                    [bokeh]="bokeh"
+                    width="500"
+                    height="500" cover="true"></endless-figure>
+  </div>
+  <div class="content">
+    <endless-overline *ngIf="overline">{{ overline }}</endless-overline>
+    <h1 *ngIf="title" class="title" [innerHTML]="title"></h1>
+    <div class="body">
+      <p>
+        <ng-content></ng-content>
+      </p>
+      <endless-button *ngIf="href && buttonLabel"
+                      [href]="href">{{buttonLabel}}</endless-button>
+    </div>
+  </div>
+
+</div>

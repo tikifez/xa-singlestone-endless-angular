@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <h2 *ngIf="title" class="headline">{{ title }}</h2>
+  <div class="steps">
+    <div *ngFor="let step of steps | async" class="step">
+      <div class="number-wrapper">
+        <div class="number">
+          {{ step.stepNumber  | number: '2.0'}}
+        </div>
+      </div>
+      <div class="title">
+        {{ step.title }}
+      </div>
+      <div class="body">
+        {{ step.body }}
+      </div>
+    </div>
+  </div>
+</div>

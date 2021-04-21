@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  background: var(--global--color-background-accent);
+  color: var(--global--color-text-accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.logo {
+  max-height: var(--global--spacing-unit);
+  padding-left: var(--section--padding-horizontal);
+}
+.wrapper {
+  max-width: var(--section--content-max-width);
+  margin: auto;
+  padding: calc(0.7 * var(--global--spacing-unit)) 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  color: var(--global--color-primary);
+}
