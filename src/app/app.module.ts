@@ -14,6 +14,8 @@ import {HeaderComponent} from './shared/header/header.component';
 import {LogoComponent} from './shared/logo/logo.component';
 import {LoadingComponent} from './shared/loading/loading.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -33,7 +35,13 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
